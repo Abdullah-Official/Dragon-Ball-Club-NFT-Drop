@@ -1,0 +1,142 @@
+body {
+    background-color: #0d1a2d;
+}
+
+.attribution {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+.sr-only {
+    visibility: hidden;
+}
+
+.card {
+    width: 20rem;
+    margin: 0.4rem auto 0 auto;
+    padding: 1rem;
+    background-color: #15273f;
+    height:100% ;
+}
+
+h2 {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    color: #5f7393;
+    margin-bottom: 1rem;
+}
+
+.inline {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e3048;
+}
+
+.inlineAvatar {
+    display: inline-flex;
+    align-items: center;
+}
+
+.crypto {
+    color: #35e3ea;
+}
+
+.avatar {
+    width: 2rem;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin-right: 1rem;
+}
+
+.author {
+    color: white;
+}
+
+
+ul {
+    list-style-type: none;
+}
+
+/* Navbar  */
+button:active {
+    outline: none !important;
+    border: none !important;
+}
+
+button:focus {
+    outline: 0 !important;
+}
+
+/* NFT card */
+
+.nft-img {
+    height: 280px;
+    object-fit: cover;
+}
+
+.divider{
+    background-color: #d7d8d9 !important;
+}
+.inputField{
+    background-color: #15273f !important;
+    width:90% !important;
+    outline: none !important;
+    border: none !important;
+    padding: 10px !important;
+    border-radius: 8px;
+    color: #fff !important;
+    margin-top:10px;
+}
+.input-label{
+    color: #fff !important;
+    font-weight: bold;
+    font-size:16px;
+    margin-bottom: -0.5px;
+}
+.upload_box{
+    height:160px;
+    width:160px;
+    border-radius: 8px;
+    background-color: #15273f !important;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar{
+    overflow-y: scroll !important;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset #35e3ea ;
+    border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset #35e3ea; 
+}
+.upload_box:hover{
+    background-color: #d7d8d9 !important;
+    transition: all 0.35s ease-in-out;
+    cursor: pointer;
+}
+
+.upload_box > div {
+    flex-direction: column;
+}
