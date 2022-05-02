@@ -1,4 +1,4 @@
-import Link from 'next/Link'
+// import Link from 'next/Link'
 import { RiMenu3Line } from 'react-icons/ri';
 
 export default function Navbar({connectWallet, address}) {
@@ -13,16 +13,16 @@ export default function Navbar({connectWallet, address}) {
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav" style={{marginLeft:'auto'}}>
         <li className="nav-item">
-          <Link className="nav-link text-white" aria-current="page" href="/">Home</Link>
+          <a className="nav-link text-white" aria-current="page" href="/">Home</a>
         </li>
         <li className="nav-item">
-          <Link className="nav-link text-white" href="/profile">Profile</Link>
+          <a className="nav-link text-white" href="/profile">Profile</a>
         </li>
         <li className="nav-item">
-          <Link className="nav-link text-white" href="#">Pricing</Link>
+          <a className="nav-link text-white" href="#">Pricing</a>
         </li>
         <li className="nav-item">
-          <Link className="nav-link text-white disabled">Disabled</Link>
+          <a className="nav-link text-white disabled">Disabled</a>
         </li>
 
       </ul>
