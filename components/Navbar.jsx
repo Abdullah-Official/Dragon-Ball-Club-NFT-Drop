@@ -7,22 +7,22 @@ export default function Navbar({connectWallet, address}) {
   <nav className="navbar navbar-expand-lg text-white py-3" style={{backgroundColor:'#161b22', background:'rgba(0,0,0,0.1)'}}>
   <div className="container-fluid">
     <a className="navbar-brand" style={{color:'white', fontWeight: 'bold'}} href="#">Dragon Ball Club</a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <div className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <RiMenu3Line size={28} style={{color:'white'}} />
-    </button>
+    </div>
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav" style={{marginLeft:'auto'}}>
         <li className="nav-item">
-          <a className="nav-link text-white" aria-current="page" href="#">Home</a>
+          <Link className="nav-link text-white" aria-current="page" href="/">Home</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-white" href="#">Features</a>
+          <Link className="nav-link text-white" href="/profile">Profile</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-white" href="#">Pricing</a>
+          <Link className="nav-link text-white" href="#">Pricing</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-white disabled">Disabled</a>
+          <Link className="nav-link text-white disabled">Disabled</Link>
         </li>
 
       </ul>

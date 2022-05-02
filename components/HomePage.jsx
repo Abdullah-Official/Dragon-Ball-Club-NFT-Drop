@@ -7,29 +7,33 @@ import { ThirdwebSDK } from "@3rdweb/sdk";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import { Skeleton } from "@mui/material";
-import Drawer from '@mui/material/Drawer';
+import Drawer from "@mui/material/Drawer";
 import { useAddress, useDisconnect, useMetamask } from "@thirdweb-dev/react";
-import { useNFTDrop } from '@thirdweb-dev/react'
+import { useNFTDrop } from "@thirdweb-dev/react";
 export default function HomePage() {
   const connectWithMetamask = useMetamask();
 
   const address = useAddress();
   const [nfts, setNfts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const nftDrop = useNFTDrop("0xB5Ca91326227A207a7dA22554BB3498055ca29C1")
-  console.log(nftDrop)
+  const nftDrop = useNFTDrop("0xB5Ca91326227A207a7dA22554BB3498055ca29C1");
   const getNftDrops = async () => {
     const nfts = await nftDrop.getAllUnclaimed();
-      setNfts(nfts)
-      const claimedNfts = await nftDrop.getAll();
-      setNfts([...nfts,...claimedNfts])
-      setLoading(false);
-  }
+    const claimedNfts = await nftDrop.getAll();
+    setNfts([...nfts, ...claimedNfts]);
+    setLoading(false);
+  };
   useEffect(() => {
     if (!nftDrop) return;
-    getNftDrops()
+    getNftDrops();
   }, [nftDrop]);
   console.log(nfts);
+
+  const reloadNfts = () => {
+    setLoading(true);
+    getNftDrops();
+    setLoading(false);
+  };
 
   const [open, setOpen] = useState(false);
 
@@ -51,11 +55,21 @@ export default function HomePage() {
           // style={{ width: 1000 }}
         >
           <Box
-            sx={{ width: '55vw', backgroundColor:'#091526', height:'100%', paddingTop:2, paddingBottom:6 }}
+            sx={{
+              width: "55vw",
+              backgroundColor: "#091526",
+              height: "100%",
+              paddingTop: 2,
+              paddingBottom: 6,
+            }}
             role="presentation"
             className="sidebar"
           >
-            <CreateDrop refetchNfts={getNftDrops} nftDrop={nftDrop} toggleDrawer={toggleDrawer} />
+            <CreateDrop
+              refetchNfts={reloadNfts}
+              nftDrop={nftDrop}
+              toggleDrawer={toggleDrawer}
+            />
           </Box>
         </Drawer>
       </div>
@@ -70,6 +84,7 @@ export default function HomePage() {
                   >
                     <NftCard
                       name={v?.metadata?.name || v?.name}
+                      timestamp={v?.metadata?.timestamp || v?.timestamp}
                       image={v?.metadata?.image || v?.image}
                       description={v?.metadata?.description || v?.description}
                       owner={v?.owner}
@@ -82,7 +97,7 @@ export default function HomePage() {
                   </div>
                 );
               })
-            : [0,1,2]?.map((v, i) => {
+            : [0, 1, 2]?.map((v, i) => {
                 return (
                   <div
                     key={i}

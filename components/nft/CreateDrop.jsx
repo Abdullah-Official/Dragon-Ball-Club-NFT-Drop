@@ -1,4 +1,3 @@
-import Link from "next/Link";
 import { useState, useEffect, useRef, useMemo } from "react";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
@@ -97,7 +96,7 @@ export default function CreateDrop({ toggleDrawer, nftDrop, refetchNfts }) {
           {image ? (
             <img
               className="my-4"
-              style={{ width: 160, height: 160, borderRadius: 8 }}
+              style={{ width: 160, height: 160, borderRadius: 8, objectFit: 'cover' }}
               src={image}
             />
           ) : (

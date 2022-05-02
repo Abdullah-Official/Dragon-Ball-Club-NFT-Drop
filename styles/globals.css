@@ -1,5 +1,9 @@
 body {
     background-color: #0d1a2d;
+    padding:0px;
+    margin:0px;
+    font-family: 'Josefin Sans', sans-serif !important;
+    overflow-x: hidden;
 }
 
 .attribution {
@@ -21,7 +25,7 @@ body {
     margin: 0.4rem auto 0 auto;
     padding: 1rem;
     background-color: #15273f;
-    height:100% ;
+    height:100%;
 }
 
 h2 {
@@ -81,8 +85,8 @@ button:focus {
 /* NFT card */
 
 .nft-img {
-    height: 280px;
-    object-fit: cover;
+    height: 240px;
+    object-fit: contain;
 }
 
 .divider{
@@ -139,4 +143,57 @@ button:focus {
 
 .upload_box > div {
     flex-direction: column;
+}
+
+/* // Profile page  */
+
+.main_container{
+    height: 55vh;
+    width: 100%;
+    /* background-color: rgba(s, 217, 149, 0.467); */
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.cover_profile{
+    width: 100vw;
+    height: 86%;
+}
+
+.cover_img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile_pic{
+    width: 140px;
+    height:140px;
+    position: absolute;
+    bottom: 2%;
+    /* left: 50%; */
+    border-radius: 100px;
+}
+
+.profile_img{
+    width: 100%;
+    height:100%;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+.collection_heading{
+    color: #e5feff;
+    font-size: 32px;
+    font-weight: 800;
+    padding-left: 13px;
+}
+.profile_pic > h4{
+    text-align: center;
+    color: #f1f1f1;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    font-weight: 700;
 }

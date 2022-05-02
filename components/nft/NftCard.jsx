@@ -1,7 +1,7 @@
-import Link from "next/Link";
 import { FaEthereum } from "react-icons/fa";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { useState } from "react";
+import moment from "moment";
 
 export default function NftCard({
   name,
@@ -13,6 +13,7 @@ export default function NftCard({
   address,
   getNftDrops,
   nftDrop,
+  timestamp
 }) {
   const [loading, setLoading] = useState(false);
 
@@ -49,18 +50,22 @@ export default function NftCard({
             style={{ heigth: 20 }}
           />
           <h2>{name}</h2>
-          <p>{description}.</p>
+          <p>{description.slice(0, 20)}...</p>
           <div className="inline">
-            {price && (
+            {price && !owner ? (
               <p className="crypto">
                 <FaEthereum size={20} />
                 &nbsp;<span className="mt-5">0.025 ETH</span>
               </p>
-            )}
-            <p>
+            ) : null}
+            {
+              timestamp && (
+                <p>
               <AiOutlineClockCircle size={20} />
-              &nbsp;3 days left
+              &nbsp;{owner ? 'CLAIMED' : moment().startOf(new Date(timestamp).getHours(), "YYYYMMDD").fromNow()}
             </p>
+              )
+            }
           </div>
           {!owner ? (
             <div>
@@ -73,7 +78,20 @@ export default function NftCard({
                 {loading ? "Loading.." : "Claim"}
               </button>
             </div>
-          ) : null}
+          ) : owner === address ? (
+            <div>
+            <button
+              // disabled={loading ? "true" : ""}
+              onClick={() => alert('Listed')}
+              type="button"
+              class="btn btn-primary w-100 mt-4 mb-2 py-2"
+            >
+              List
+            </button>
+          </div>
+          ) : null
+          
+          }
         </div>
       </main>
     </>
